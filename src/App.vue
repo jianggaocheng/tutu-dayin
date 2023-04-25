@@ -10,14 +10,19 @@
             <el-row v-if="!m.link" class="main-menu-group">
               <el-text>{{ m.name }}</el-text>
             </el-row>
-            <el-row v-else class="main-menu-item" :class="{active: m.isActive}" @click="handleMenuClick(m.link)">
+            <el-row
+              v-else
+              class="main-menu-item"
+              :class="{ active: m.isActive }"
+              @click="handleMenuClick(m.link)"
+            >
               <span>{{ m.name }}</span>
             </el-row>
           </div>
         </el-aside>
         <el-container>
           <el-main>
-            <div class="main-container"> 
+            <div class="main-container">
               <RouterView />
             </div>
           </el-main>
@@ -30,50 +35,50 @@
 <script>
 import menu from './menu.json'
 
-export default{
+export default {
   data() {
-    return{
+    return {
       active: 0,
       menu: menu
     }
   },
   methods: {
     handleMenuClick(link) {
-      console.log(link);
+      console.log(link)
       this.$router.push(link)
     }
-  },
+  }
 }
 </script>
 
 <style lang="less">
-  .main-header {
-    background-color: #626aef;
-    color: #FFFFFF;
+.main-header {
+  background-color: #626aef;
+  color: #ffffff;
+}
+
+.main-menu-group {
+  padding: 10px 20px;
+}
+
+.main-menu-item {
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #858bef;
+    color: #fff;
   }
 
-  .main-menu-group {
-    padding: 10px 20px;
-  }
-
-  .main-menu-item {
-    padding: 10px 20px;
-    font-weight: 600;
+  &.active {
+    background-color: #858bef;
+    color: #fff;
     cursor: pointer;
-
-    &:hover {
-      background-color: #858BEF;
-      color: #FFF;
-    }
-
-    &.active {
-      background-color: #858BEF;
-      color: #FFF;
-      cursor: pointer;
-    }
   }
+}
 
-  .main-container {
-    height: 100%;
-  }
+.main-container {
+  height: 100%;
+}
 </style>

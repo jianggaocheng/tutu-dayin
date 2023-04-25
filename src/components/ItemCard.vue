@@ -10,21 +10,21 @@
 </template>
 
 <script setup>
-  defineProps({
-    title: String,
-    description: String,
-    options: Object
-  })
+defineProps({
+  title: String,
+  description: String,
+  options: Object
+})
 </script>
 
 <style lang="less">
-  .card-description {
-    font-size: 12px;
-    color: #999;
-    margin-top: 13px;
-    line-height: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+.card-description {
+  font-size: 12px;
+  color: #999;
+  margin-top: 13px;
+  line-height: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>
